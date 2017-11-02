@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 31-10-2017 a las 19:10:02
+-- Tiempo de generación: 02-11-2017 a las 19:36:35
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -46,7 +46,9 @@ INSERT INTO `empleado` (`id`, `nombre`, `sexo`, `email`, `clave`, `turno`, `perf
 (1, 'Jefe', 'masculino', 'admin@estacionar.com', 'admin123', 'mañana', 'administrador'),
 (2, 'Empleado01', 'masculino', 'emp01@estacionar.com', 'emp123', 'mañana', 'usuario'),
 (3, 'Empleado02', 'femenino', 'emp02@estacionar.com', 'emp456', 'tarde', 'usuario'),
-(4, 'Empleado03', 'masculino', 'emp03@estacionar.com', 'emp789', 'noche', 'usuario');
+(4, 'Empleado03', 'masculino', 'emp03@estacionar.com', 'emp789', 'noche', 'usuario'),
+(5, '', '', '', '', '', ''),
+(9, 'NombrePrueba', 'SexoPrueba', 'EmailPrueba', 'ClavePrueba', 'TurnoPrueb', 'PerfilPrueba');
 
 -- --------------------------------------------------------
 
@@ -58,11 +60,11 @@ CREATE TABLE `estacionados` (
   `id` int(32) NOT NULL,
   `patente` varchar(10) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `color` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `foto` varchar(64) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `marca` varchar(64) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `id_emp_ing` int(32) NOT NULL,
-  `fecha_hora_ing` varchar(64) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_hora_ing` datetime NOT NULL,
   `id_emp_sal` int(32) DEFAULT NULL,
-  `fecha_hora_sal` int(64) DEFAULT NULL,
+  `fecha_hora_sal` datetime DEFAULT NULL,
   `importe` double DEFAULT NULL,
   `tiempo_trans` varchar(64) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -112,7 +114,7 @@ ALTER TABLE `historico`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `estacionados`
