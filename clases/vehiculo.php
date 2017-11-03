@@ -28,6 +28,26 @@ class vehiculo
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "vehiculo");	
     }
 
+    public  function BorrarVehiculo($request, $response, $args)
+	{
+        $ArrayDeParametros = $request->getParsedBody();
+        $pat=$ArrayDeParametros['patente'];
+
+ 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta('DELETE FROM estacionados WHERE patente=:patente');	
+			$consulta->bindValue(':patente',$pat, PDO::PARAM_STR);		
+			$consulta->execute();
+            if($consulta->rowCount())
+            {
+                print("algo borro!!!");
+            }
+            else
+            {
+                print("no Borro nada!!!");
+            }
+            
+	}
+
 }
 
 
